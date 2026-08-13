@@ -381,3 +381,37 @@ Account 1 ─── N Transaction
 Merchant 1 ─── N Transaction
 Transaction 1 ─── 0..N Fraud Event
 ```
+## Data Quality Rules
+
+### Customer
+- customer_id cannot be NULL
+- name cannot be NULL
+- country must be valid
+- email must follow an accepted format
+
+### Account
+- account_id cannot be NULL
+- customer_id cannot be NULL
+- customer_id must exist in Customer
+- status must be from an accepted set
+
+### Merchant
+- merchant_id cannot be NULL
+- merchant_category must be valid
+- status must be valid
+- API response must conform to the expected schema
+
+### Transaction
+- transaction_id cannot be NULL
+- account_id must exist
+- merchant_id must exist
+- transaction_amount must be greater than 0
+- currency must be valid
+- transaction_status must be valid
+
+### Fraud Event
+- fraud_event_id cannot be NULL
+- transaction_id cannot be NULL
+- transaction_id should exist
+- risk_score must be between 0 and 1
+- event_type must be valid
