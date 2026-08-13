@@ -361,3 +361,23 @@ Infrastructure will eventually be managed using Terraform.
 | Terraform | Infrastructure as Code for provisioning and managing cloud resources |
 | Python | Pipeline utilities, testing, configuration, and supporting application logic |
 | SQL / Spark SQL | Data transformation, validation, analysis, and querying |
+## Data Model Summary
+
+### Dimensions
+
+- Customer
+- Account
+- Merchant
+
+### Facts / Events
+
+- Transaction
+- Fraud Event
+
+### Relationships
+```text
+Customer 1 ─── N Account
+Account 1 ─── N Transaction
+Merchant 1 ─── N Transaction
+Transaction 1 ─── 0..N Fraud Event
+```
