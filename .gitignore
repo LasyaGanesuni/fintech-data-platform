@@ -3,3 +3,9 @@
 
 # Generated source data
 data/source/
+
+# Generated raw data
+data/raw/
+
+# Generated Bronze data
+data/bronze/
